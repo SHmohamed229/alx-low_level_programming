@@ -1,13 +1,11 @@
 #include "m.h"
-
 /**
- * main - Entry point
+ *main - main program
+ *Return: 0
  *
- * Return: Always 
  */
 int main(void)
 {
-	print_school();
-	return (EXIT_SUCCESS);
+	print();
+	return (0);
 }
-/* School */
