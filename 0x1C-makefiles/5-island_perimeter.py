@@ -1,37 +1,41 @@
 #!/usr/bin/python3
-"""
-this for task 5 has a Return the peram of the island in grid.
-"""
+""" This script  compute the param of an island"""
 
 
 def island_perimeter(grid):
-    """this Method for returns the param of the island  in grid."""
-    # p = perimeter, i = iteration 1, j = iteration2
-    p = 0
-    for i in range(len(grid)):
-        for j in range(len(grid[0])):
-            if grid[i][j] == 1:
-                try:
-                    if grid[i - 1][j] == 0 or i == 0:
-                        p += 1
-                except IndexError:
-                    p += 1
+    """ island_param:
+                    Args: for grid, a list of list of integers
+                    Return: for param of the island in grid
+    """
 
-                try:
-                    if grid[i + 1][j] == 0:
-                        p += 1
-                except IndexError:
-                    p += 1
+    perimeter = 0
+    env_list = []
 
-                try:
-                    if grid[i][j - 1] == 0 or j == 0:
-                        p += 1
-                except IndexError:
-                    p += 1
-
-                try:
-                    if grid[i][j + 1] == 0:
-                        p += 1
-                except IndexError:
-                    p += 1
-    return p
+    for items in range(len(grid)):
+        if items == 0 or items == len(grid):
+            continue
+        for cell in range(len(grid[items])):
+            if cell == 0 or cell == len(grid[items]):
+                continue
+            else:
+                if grid[items][cell] == 1:
+                    env_list = [grid[items - 1][cell], grid[items][cell + 1],
+                                grid[items + 1][cell],  grid[items][cell - 1]]
+                    count = 0
+                    for j in env_list:
+                        if j == 0:
+                            count = count + 1
+                    if (count == 4):
+                        return 4
+                    elif (count == 3):
+                        perimeter = perimeter + 3
+                    elif (count == 2):
+                        perimeter = perimeter + 2
+                    elif (count == 1):
+                        perimeter = perimeter + 1
+                    else:
+                        pass
+                    env_list = []
+                else:
+                    pass
+    return perimeter

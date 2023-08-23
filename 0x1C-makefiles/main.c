@@ -1,13 +1,13 @@
 #include "m.h"
+
 /**
- *main - this method for main program
- *Return: 0
+ * main - Entry point
  *
+ * Return: Always 
  */
 int main(void)
 {
-	print();
-	return (0);
+	print_school();
+	return (EXIT_SUCCESS);
 }
-/* Mohamed */
 /* School */
